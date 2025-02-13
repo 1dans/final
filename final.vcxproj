@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bot.cpp" />
+    <ClCompile Include="fileWrite.cpp" />
     <ClCompile Include="final.cpp" />
+    <ClCompile Include="getStarted.cpp" />
+    <ClCompile Include="mainProccess.cpp" />
+    <ClCompile Include="notrelated.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bot.h" />
+    <ClInclude Include="fileWrite.h" />
+    <ClInclude Include="getStarted.h" />
+    <ClInclude Include="mainProccess.h" />
+    <ClInclude Include="notrelated.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

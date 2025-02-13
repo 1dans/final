@@ -18,5 +18,37 @@
     <ClCompile Include="final.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="notrelated.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainProccess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getStarted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileWrite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="notrelated.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mainProccess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="getStarted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileWrite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
