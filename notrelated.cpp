@@ -1,4 +1,5 @@
 #include "notrelated.h"
+#include "fileInteraction.h"
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -12,29 +13,6 @@
 using namespace std;
 using namespace Structures;
 
-void notrelated::show_matrix(vector<vector<int>> matrix, int size)
-{
-        system("cls");
-        int count = 1;
-        string green = "\033[32m", clean = "\033[0m";
-        T << setw(size == 4 ? 15 : 12) << right << "П'ятнашки" << E;
-        string colsName[4] = { "a", "b", "c", "d" };
-        for (int i = 1; i < size + 1; ++i) T << setw(4) << right << i;
-        T << E;
-        if (size == 4) T << setw(16) << right << "-------------" << E;
-        else if (size == 3) T << setw(12) << right << "---------" << E;
-        for (int i = 0; i < size; ++i) {
-            T << setw(3) << left << colsName[i];
-            for (int j = 0; j < size; ++j) {
-                if (matrix[i][j] == count) {
-                    T << green << setw(3) << left << matrix[i][j] << clean << ' ';
-                }
-                else T << setw(3) << left << matrix[i][j] << ' ';
-                count++;
-            }
-            T << E;
-        }
-}
 
 bool notrelated::canMove(vector<vector<int>> matrix, int size, int x, int y) 
 {
@@ -58,6 +36,9 @@ void notrelated::winning(int moves) {
     showText("Вітаю! Ви виграли, використав ", 30);
     T << moves;
     showText(" ходів.", 30);
+    fileInt save;
+    save.saveToFile(moves, "statistics.txt");
+    
 }
 
 int notrelated::defineX(Pos position) {
@@ -68,16 +49,6 @@ int notrelated::defineX(Pos position) {
     case 'd': return 3; break;
     default: return -1; break;
     }
-}
-
-vector<vector<int>> notrelated::shuffleMatrix(vector<vector<int>> matrix, int size) {
-    vector<int> numbers;
-    int index = 0;
-    for (int i = 1; i < size * size; ++i) numbers.push_back(i);
-    numbers.push_back(0);
-    random_shuffle(numbers.begin(), numbers.end());
-    for (int i = 0; i < size; ++i) for (int j = 0; j < size; ++j) matrix[i][j] = numbers[index++];
-    return matrix;
 }
 
 vector<vector<int>> notrelated::move(vector<vector<int>> matrix, int size, int x, int y, Zero zero) {

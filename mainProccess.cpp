@@ -22,11 +22,10 @@ void mainProccess::main_process(vector<vector<int>> matrix, int size)
     getStarted startt;
     int moves = 0;
     while (!winCheck(matrix, size)) {
-        int x, y;
+        int x = 0, y = 0;
         show_matrix(matrix, size);
         Pos position;
-        T << "якщо хочете передати керуванн€ боту, впиш≥ть 'q 0' та 'q 1' щоб покинути програму";
-        T << "яку кл≥тинку ви хот≥ли би перем≥стити?\nЌапиш≥ть позиц≥ю (через проб≥л, спочатку л≥тера, пот≥м число(наприклад: a 1)) : ";
+        T << "¬писуйте в≥дпов≥дь через проб≥лю. —початку л≥тера, пот≥м число (наприклад: a 1)\nякщо хочете передати керуванн€ боту, впиш≥ть 'q 0', 'q 1' щоб покинути програму\nяку кл≥тинку ви хот≥ли би перем≥стити?\nѕозиц≥€: ";
         while (true) {
             cin >> position.row >> position.col;
             if (position.row == 'q' && position.col == 0) a.start_bot();
@@ -37,6 +36,7 @@ void mainProccess::main_process(vector<vector<int>> matrix, int size)
             else break;
         }
         if (position.row == 'q' && position.col == 1) startt.welcome();
+        if (position.row == 'q' && position.col == 0) a.start_bot();
         moves++;
         Zero zero = findZero(matrix, size);
         matrix = move(matrix, size, x, y, zero);

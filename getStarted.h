@@ -10,8 +10,10 @@ using namespace std;
 class getStarted: public mainProccess
 {
 public:
-    void starting(int size);
-    void get_answer();
+    void starting(vector<vector<int>> matrix, int size);
+    void initializeMatrix(int size);
+    void preparing15();
+    void get15Answer();
     void welcome();
 };
 

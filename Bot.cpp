@@ -14,7 +14,10 @@
 using namespace std;
 using namespace Structures;
 
-void Bot::start_bot()
+void Bot::start_bot(vector<vector<int>> matrix, int size)
 {
+	system("cls");
 	cout << "Бот розпочав роботу";
+	show_matrix(matrix, size);
+
 }

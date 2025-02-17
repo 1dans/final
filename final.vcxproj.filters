@@ -30,7 +30,10 @@
     <ClCompile Include="getStarted.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fileWrite.cpp">
+    <ClCompile Include="fileInteraction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +50,10 @@
     <ClInclude Include="getStarted.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fileWrite.h">
+    <ClInclude Include="fileInteraction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

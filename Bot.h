@@ -2,12 +2,12 @@
 #include "notrelated.h"
 #include <iostream>
 #include <vector>
-
+#include "getStarted.h"
 using namespace std;
 
-class Bot
+class Bot:public getStarted
 {
 public:
-	void start_bot();
+	void start_bot(vector<vector<int>> matrix, int size);
 };
 

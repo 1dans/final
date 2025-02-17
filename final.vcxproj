@@ -128,16 +128,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bot.cpp" />
-    <ClCompile Include="fileWrite.cpp" />
+    <ClCompile Include="fileInteraction.cpp" />
     <ClCompile Include="final.cpp" />
     <ClCompile Include="getStarted.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="mainProccess.cpp" />
     <ClCompile Include="notrelated.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bot.h" />
-    <ClInclude Include="fileWrite.h" />
+    <ClInclude Include="fileInteraction.h" />
     <ClInclude Include="getStarted.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="mainProccess.h" />
     <ClInclude Include="notrelated.h" />
   </ItemGroup>

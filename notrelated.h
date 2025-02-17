@@ -2,6 +2,7 @@
 #include <vector>
 #include<iostream>
 #include <string>
+#include "Matrix.h"
 
 namespace Structures {
     typedef struct {
@@ -17,15 +18,14 @@ namespace Structures {
 using namespace std;
 using namespace Structures;
 
-class notrelated
+class notrelated: public Matrix
 {
 public:
-    void show_matrix(vector<vector<int>> matrix, int size);
+    
     bool canMove(vector<vector<int>> matrix, int size, int x, int y);
     void showText(string text, int t);
     void winning(int moves);
     int defineX(Pos position);
-    vector<vector<int>> shuffleMatrix(vector<vector<int>> matrix, int size);
     vector<vector<int>> move(vector<vector<int>> matrix, int size, int x, int y, Zero zero);
     Zero findZero(vector<vector<int>> matrix, int size);
     bool winCheck(vector<vector<int>> matrix, int size);

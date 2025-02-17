@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-    getStarted o;
+    getStarted start;
     srand(time(NULL));
     system("chcp 1251>null");
-    o.welcome();
+    start.welcome();
 }
