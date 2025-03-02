@@ -15,7 +15,7 @@ using namespace std;
 
 void getStarted::starting(vector<vector<int>> matrix, int size)
 {
-    int modeChoice;
+    int modeChoice = 0;
     Bot bot;
     string prep[4]{ "Оберіть режим зборки.", "1 - ручний (користувач)", "2 - комп'ютерний (бот)", "Ваш вибір: " };
     for (string i : prep) {
