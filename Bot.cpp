@@ -19,5 +19,5 @@ void Bot::start_bot(vector<vector<int>> matrix, int size)
 	system("cls");
 	cout << "Бот розпочав роботу";
 	show_matrix(matrix, size);
-
+	winning({0, 0, 0});
 }

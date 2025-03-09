@@ -17,10 +17,10 @@ void Matrix::show_matrix(vector<vector<int>> matrix, int size)
 {
     system("cls");
     int count = 1;
-    string green = "\033[32m", clean = "\033[0m";
+    string green = "\033[32m", clean = "\033[0m", purple = "\033[35m";
     T << setw(size == 4 ? 15 : 12) << right << "П'ятнашки" << E;
     string colsName[4] = { "a", "b", "c", "d" };
-    for (int i = 1; i < size + 1; ++i) T << setw(4) << right << i;
+    for (int i = 1; i < size + 1; ++i) T << purple << setw(4) << right << i << clean;
     T << E;
     if (size == 4) T << setw(16) << right << "-------------" << E;
     else if (size == 3) T << setw(12) << right << "---------" << E;
@@ -61,9 +61,13 @@ vector<vector<int>> Matrix::shuffleMatrixUser(vector<vector<int>> matrix, int si
             show_matrix(matrix, size);
             cout << "Куди розмістити число " << count << "? ";
             cin >> position.row >> position.col;
-            y = position.col;
+            y = position.col - 1;
             x = d.defineX(position);
-            if (matrix[x][y]!=0) cout << "Ця клітинка вже зайнята" << E;
+            if (x > size - 1 || y > size - 1 || y < 0 || x < 0) { 
+                cout << "Помилка, спробуйте ще раз"; 
+                s(750);
+            }
+            else if (matrix[x][y] != 0) { cout << "Ця клітинка вже зайнята" << E; s(750); }
             else {
                 matrix[x][y] = count;
                 count++;

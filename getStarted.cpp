@@ -1,10 +1,13 @@
 #include "getStarted.h"
 #include "notrelated.h"
 #include "mainProccess.h"
+#include "fileInteraction.h"
 #include "Bot.h"
+
 #include <vector>
 #include<iostream>
 #include <string>
+#include <iomanip>
 
 #define s Sleep
 #define T cout
@@ -79,7 +82,7 @@ void getStarted::welcome()
     while (gameAns != 1 && gameAns != 2) {
         cin >> gameAns;
         if (gameAns == 1) {
-            preparing15();
+            menu15();
         }
         else if (gameAns == 2) {
             cout << "В розробці";
@@ -101,4 +104,35 @@ void getStarted::get15Answer()
     }
     initializeMatrix(size);
 
+}
+
+void getStarted::menu15()
+{
+    cout << "\033[2J\033[1;1H";
+    for (int i = 0; i < 60; ++i) T << '-';
+    cout << endl << right << setw(35) << "П'ятнашки";
+    string menuText[]{ "ГОЛОВНЕ МЕНЮ", "1 - Грати", "2 - Подивитися статситику минулих ігор", "3 - Вийти", "Ваш вибір: "};
+    for (string i : menuText) {
+        cout << endl;
+        showText(i, 20);
+        
+    }
+    int choice;
+    cin.ignore();
+    fileInt file;
+    while (true) {
+        cin >> choice;
+        switch (choice) {
+            case 1: preparing15(); break;
+            case 2: file.showStats(); break;
+            case 3: break;
+            default: break;
+        }
+        if (choice == 3) { 
+            cout << "До побачення!";
+            break; 
+        }
+    }
+    
+    return;
 }

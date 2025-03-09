@@ -1,26 +1,31 @@
-#include "mainProccess.h"
-#include "notrelated.h"
-#include "Bot.h"
-#include "getStarted.h"
 #include <iostream>
 #include <vector>
 #include <iomanip>
 #include <algorithm>
 #include <Windows.h>
+#include <chrono>
 
+#include "mainProccess.h"
+#include "notrelated.h"
+#include "Bot.h"
+#include "getStarted.h"
+#include "fileInteraction.h"
 
 #define s Sleep
 #define T cout
 #define E endl
 
+using namespace std::chrono;
 using namespace std;
 using namespace Structures;
+using namespace Statistics;
 
 void mainProccess::main_process(vector<vector<int>> matrix, int size)
 {
     Bot a;
     getStarted startt;
     int moves = 0;
+    auto startPC = steady_clock::now();
     while (!winCheck(matrix, size)) {
         int x = 0, y = 0;
         show_matrix(matrix, size);
@@ -30,7 +35,7 @@ void mainProccess::main_process(vector<vector<int>> matrix, int size)
             cin >> position.row >> position.col;
             if (position.row == 'q' && position.col == 0) a.start_bot(matrix, size);
             if (position.row == 'q' && position.col == 1) break;
-            x = defineX(position); // 
+            x = defineX(position); 
             y = position.col - 1;
             if (!canMove(matrix, size, x, y)) showText("Спробуйте знову. Вводіть в форматі a 1 (буква відповідає за рядок, цифра за стовпець): ", 30);
             else break;
@@ -41,5 +46,10 @@ void mainProccess::main_process(vector<vector<int>> matrix, int size)
         Zero zero = findZero(matrix, size);
         matrix = move(matrix, size, x, y, zero);
     }
-    winning(moves);
+    auto endPC = steady_clock::now();
+    duration<double> elapsedPC = endPC - startPC;
+    double time = elapsedPC.count();
+    Statistic stat = {time, moves, size};
+    show_matrix(matrix, size);
+    winning(stat);
 }

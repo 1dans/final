@@ -1,5 +1,6 @@
 #include "notrelated.h"
 #include "fileInteraction.h"
+#include "getStarted.h"
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -12,6 +13,7 @@
 
 using namespace std;
 using namespace Structures;
+using namespace Statistics;
 
 
 bool notrelated::canMove(vector<vector<int>> matrix, int size, int x, int y) 
@@ -31,14 +33,24 @@ void notrelated::showText(string text, int t) {
     }
 }
 
-void notrelated::winning(int moves) {
-    system("cls");
+void notrelated::winning(Statistic stat) {
+    cin.ignore(10000, '\n');
+    T << E;
+    int minutes = stat.time / 60;
     showText("Вітаю! Ви виграли, використав ", 30);
-    T << moves;
-    showText(" ходів.", 30);
+    T << stat.moves;
+    showText(" ходів, витративши ", 30);
+    T << minutes;
+    showText(" хвилин та ", 30);
+    T << stat.time;
+    showText(" секунд", 30);
+    T << E;
     fileInt save;
-    save.saveToFile(moves, "statistics.txt");
-    
+    save.saveToFile(stat, "statistics.txt");
+    getStarted start;
+    cout << "Нажміть ENTER для повернення в головне меню..." << endl;
+    cin.ignore(10000, '\n');
+    start.menu15();
 }
 
 int notrelated::defineX(Pos position) {

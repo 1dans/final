@@ -14,6 +14,7 @@ public:
     void initializeMatrix(int size);
     void preparing15();
     void get15Answer();
+    void menu15();
     void welcome();
 };
 
