@@ -1,9 +1,12 @@
 #include "fileInteraction.h"
+#include "getStarted.h"
+
 #include <fstream>
 #include <string>
 #include <iostream>
 #include <vector>
 #include <Windows.h>
+
 #define E endl
 using namespace std;
 using namespace Statistics;
@@ -48,11 +51,13 @@ void fileInt::showStats()
 	cout << "Усі дані з файлу: \n";
 	int count = 1;
 	for (auto i : stats) {
-		cout << "Гра " << count << ": Зроблено ходів " << i.moves << ". Пройдено за " << int(i.time / 60) << " хвилин та " << i.time - int(i.time / 60) << " секунд." << " Розмір поля: " << i.size << 'x' << i.size << endl;
+		cout << "Гра " << count << ": Зроблено ходів " << i.moves << ". Пройдено за " << int(i.time / 60) << " хвилин та " << i.time - (int(i.time / 60))*60 << " секунд." << " Розмір поля: " << i.size << 'x' << i.size << endl;
 		count++;
 	}
 	cout << "Введіть ENTER, щоб повернутися в головне меню...";
 	cin.ignore();
+	getStarted start;
+	start.menu15Show();
 }
 
 

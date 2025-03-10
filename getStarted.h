@@ -15,6 +15,8 @@ public:
     void preparing15();
     void get15Answer();
     void menu15();
+    void menu15Show();
     void welcome();
+    void pashalko();
 };
 

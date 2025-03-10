@@ -22,7 +22,8 @@ bool notrelated::canMove(vector<vector<int>> matrix, int size, int x, int y)
     else if ((x - 1 >= 0 && matrix[x - 1][y] == 0) ||
         (x + 1 < size && matrix[x + 1][y] == 0) ||
         (y - 1 >= 0 && matrix[x][y - 1] == 0) ||
-        (y + 1 < size && matrix[x][y + 1] == 0)) return true;
+        (y + 1 < size && matrix[x][y + 1] == 0) ||
+        (x==0 && y==0)) return true;
     return false; // про всяк випадок
 }
 
@@ -34,32 +35,34 @@ void notrelated::showText(string text, int t) {
 }
 
 void notrelated::winning(Statistic stat) {
-    cin.ignore(10000, '\n');
+    cin.ignore();
     T << E;
-    int minutes = stat.time / 60;
-    showText("Вітаю! Ви виграли, використав ", 30);
-    T << stat.moves;
-    showText(" ходів, витративши ", 30);
-    T << minutes;
-    showText(" хвилин та ", 30);
-    T << stat.time;
-    showText(" секунд", 30);
-    T << E;
-    fileInt save;
-    save.saveToFile(stat, "statistics.txt");
-    getStarted start;
+    if (stat.moves == 0 && stat.size==0) cout << "Дуже жаль, що ви здалися... Щастить в наступних іграх!\n";
+    else {
+        int minutes = stat.time / 60;
+        showText("Вітаю! Ви виграли, використав ", 30);
+        T << stat.moves;
+        showText(" ходів, витративши ", 30);
+        T << minutes;
+        showText(" хвилин та ", 30);
+        T << stat.time - (minutes*60);
+        showText(" секунд", 30);
+        T << E;
+        fileInt save;
+        save.saveToFile(stat, "statistics.txt");
+    }
     cout << "Нажміть ENTER для повернення в головне меню..." << endl;
-    cin.ignore(10000, '\n');
-    start.menu15();
+    cin.ignore();
 }
 
 int notrelated::defineX(Pos position) {
     switch (position.row) {
-    case 'a': return 0; break;
-    case 'b': return 1; break;
-    case 'c': return 2; break;
-    case 'd': return 3; break;
-    default: return -1; break;
+    case 'a': return 0;
+    case 'b': return 1;
+    case 'c': return 2;
+    case 'd': return 3;
+    case 'q': return 0;
+    default: return -1;
     }
 }
 
